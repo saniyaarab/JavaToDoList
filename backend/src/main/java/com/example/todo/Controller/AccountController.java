@@ -3,15 +3,13 @@ package com.example.todo.Controller;
 import com.example.todo.Dao.TaskRepository;
 import com.example.todo.Model.Task;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
 
 @RestController
+@RequestMapping("/api/messages")
 public class AccountController {
 
 @Autowired
@@ -33,6 +31,11 @@ public void printTask(){
         count = count + 1;
         System.out.println("Task " + count + " : " + tasks.getValue());
     }
+}
+
+@GetMapping("/test")
+public String test(){
+    return "Tasks";
 }
 
 public void saveTask(){
