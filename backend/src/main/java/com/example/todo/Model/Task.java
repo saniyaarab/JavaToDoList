@@ -1,12 +1,11 @@
 package com.example.todo.Model;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@NoArgsConstructor
 @Entity
 @Data
 public class Task {
@@ -15,6 +14,11 @@ public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int Id;
+
+    public Task(String description, int id) {
+        Description = description;
+        Id = id;
+    }
 
     public String getDescription() {
         return Description;

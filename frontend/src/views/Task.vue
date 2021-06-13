@@ -1,6 +1,8 @@
 <template>
   <div class="task">
-    <h1>{{msg}}</h1>
+    <ul>
+        <li v-for="(item, index) in items" v-bind:key="index">{{item.description}}</li>
+    </ul>
   </div>
 </template>
 
@@ -9,14 +11,14 @@ export default {
   name: 'Task',
   data() {
     return {
-      msg: ''
+      items: []
     }
   },
   mounted() {
     fetch("/api/messages/test")
-      .then((response) => response.text())
+      .then((response) => response.json())
       .then((data) => {
-          this.msg = data;
+          this.items = data;
       });
   }
 }
