@@ -51,6 +51,11 @@ public ArrayList<Task> test(){
     return taskList;
 }
 
+    @DeleteMapping("/delete")
+    public String delete(){
+        return "Task Deleted";
+    }
+
 public void saveTask(){
     System.out.println("saving task");
     //taskHashMap.put(task.getId(), task.getDescription());

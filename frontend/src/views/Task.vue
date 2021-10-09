@@ -4,6 +4,8 @@
         <li v-for="(item, index) in items" v-bind:key="index">{{item.description}}</li>
     </ul>
   </div>
+  <button class="btn btn-danger btn-sm" @click="deleteTask">Delete</button>
+
 </template>
 
 <script>
@@ -20,6 +22,13 @@ export default {
       .then((data) => {
           this.items = data;
       });
+  },
+  methods: {
+    deleteTask() {
+        fetch("/api/messages/delete", {
+            method: 'DELETE'})
+            .then((response) => console.log(response))
+    }
   }
 }
 </script>
